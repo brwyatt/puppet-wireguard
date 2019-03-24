@@ -20,7 +20,7 @@
 define wireguard::interface (
   Variant[Array,String] $address,
   String                $private_key,
-  Integer[1,65535]      $listen_port,
+  Optional[Integer[1,65535]] $listen_port = undef,
   Enum['present','absent'] $ensure = 'present',
   Optional[Array[Struct[
     {
