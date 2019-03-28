@@ -5,6 +5,8 @@
 #   be assigned to the interface.
 # @param private_key
 #   Private key for data encryption
+# @param dns
+#   DNS server to use for the connection
 # @param listen_port
 #   The port to listen
 # @param ensure
@@ -20,6 +22,8 @@
 define wireguard::interface (
   Variant[Array,String] $address,
   String                $private_key,
+  Optional[Variant[Array[String], String]]
+                        $dns = undef,
   Optional[Integer[1,65535]] $listen_port = undef,
   Enum['present','absent'] $ensure = 'present',
   Optional[Array[Struct[

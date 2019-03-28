@@ -14,6 +14,11 @@ PrivateKey = <%= @private_key %>
 <%- if @listen_port -%>
 ListenPort = <%= @listen_port %>
 <% end -%>
+<%- if @dns.is_a? String -%>
+DNS = <%= @dns %>
+<%- elsif @dns.is_a? Array -%>
+DNS = <%= @dns.join(',') %>
+<%- end -%>
 <%- if @peers -%>
 
 # Peers
