@@ -7,6 +7,14 @@
 #   Private key for data encryption
 # @param dns
 #   DNS server to use for the connection
+# @param preup
+#   List of PreUp commands to run before connecting
+# @param postup
+#   List of PostUp commands to run after connecting
+# @param predown
+#   List of PreDown commands to run before disconnecting
+# @param postdown
+#   List of PostDown commands to run after disconnecting
 # @param listen_port
 #   The port to listen
 # @param ensure
@@ -24,6 +32,14 @@ define wireguard::interface (
   String                $private_key,
   Optional[Variant[Array[String], String]]
                         $dns = undef,
+  Optional[Variant[Array[String], String]]
+                        $preup = undef,
+  Optional[Variant[Array[String], String]]
+                        $postup = undef,
+  Optional[Variant[Array[String], String]]
+                        $predown = undef,
+  Optional[Variant[Array[String], String]]
+                        $postdown = undef,
   Optional[Integer[1,65535]] $listen_port = undef,
   Enum['present','absent'] $ensure = 'present',
   Optional[Array[Struct[

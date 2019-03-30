@@ -19,6 +19,30 @@ DNS = <%= @dns %>
 <%- elsif @dns.is_a? Array -%>
 DNS = <%= @dns.join(',') %>
 <%- end -%>
+<%# PreUp -%>
+<%- if @preup.is_a? String -%>
+PreUp = <%= @preup %>
+<%- elsif @preup.is_a? Array -%>
+PreUp = <%= @preup.join(';') %>
+<%- end -%>
+<%# PostUp -%>
+<%- if @postup.is_a? String -%>
+PostUp = <%= @postup %>
+<%- elsif @postup.is_a? Array -%>
+PostUp = <%= @postup.join(';') %>
+<%- end -%>
+<%# PreDown -%>
+<%- if @predown.is_a? String -%>
+PreDown = <%= @predown %>
+<%- elsif @predown.is_a? Array -%>
+PreDown = <%= @predown.join(';') %>
+<%- end -%>
+<%# PostDown -%>
+<%- if @postdown.is_a? String -%>
+PostDown = <%= @postdown %>
+<%- elsif @postdown.is_a? Array -%>
+PostDown = <%= @postdown.join(';') %>
+<%- end -%>
 <%- if @peers -%>
 
 # Peers
